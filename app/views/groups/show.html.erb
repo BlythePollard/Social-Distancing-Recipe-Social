@@ -1,1 +1,6 @@
-group show page
+recipe index
+link to add recipes
+
+<%= @user = params[:user_id] %>
+<%= @group = params[:id] %>
+<%= link_to "Add a Recipe", new_user_group_recipe_path(@user, @group) %>

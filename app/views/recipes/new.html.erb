@@ -1,0 +1,19 @@
+
+
+<%= form_for @recipe do |f| %>
+    <%= f.label :title, 'Recipe Name' %>
+    <%= f.text_field :title %> <br><br>
+
+    <%= f.label :description, 'Description' %>
+    <%= f.text_area :description, placeholder: "or instructions if no link to recipe" %> <br><br>
+
+    <%= f.label :link %>
+    <%= f.text_field :link %><br><br>
+
+    <%= f.hidden_field :group_id, :value => params[:group_id] %>
+
+    <%= f.hidden_field :user_id, :value => params[:user_id] %>
+
+    <%= f.submit %>
+    <%end%>
+

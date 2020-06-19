@@ -1,4 +1,9 @@
-<h1> Welcome, <%= @user.name %> </h1>
+<h1> Welcome, <%= @user.name %>! </h1>
+<%= link_to "New Group", new_user_group_path(@user.id)%>
 
-
-Group code
+<br><br>
+<h3>Your Groups:</h3>
+<% @user.groups.each do |t| %> <br>
+    <%= link_to t.name, user_group_path(@user.id, t.id) %><br>
+<% end %>    
+<br>

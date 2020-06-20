@@ -21,6 +21,18 @@ class GroupsController < ApplicationController
         @user = current_user
     end
 
+    def addgroup
+    end
+
+    def searchgroup
+        if @group = Group.find_by(id: params[:groupid])
+            current_user.groups << @group
+            redirect_to user_path(current_user.id)
+        else
+            flash[:notice] = "Group not found"
+        end
+    end
+
     private
 
     def group_params

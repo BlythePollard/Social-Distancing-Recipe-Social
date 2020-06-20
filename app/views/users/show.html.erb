@@ -1,5 +1,6 @@
 <h1> Welcome, <%= @user.name %>! </h1>
 <%= link_to "New Group", new_user_group_path(@user.id)%>
+<%= link_to "Join a group", groups_addgroup_path %>
 
 <br>
 <h3>Your Groups:</h3>

@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
         if @recipe.save
             redirect_to user_group_path(recipe_params[:user_id], recipe_params[:group_id])
         else 
-            redirect_to new_user_group_recipe_path(recipe_params[:user_id], recipe_params[:group_id])
+            redirect_to new_user_group_path(recipe_params[:user_id], recipe_params[:group_id])
         end
     end
 

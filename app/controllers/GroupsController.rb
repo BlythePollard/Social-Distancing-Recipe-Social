@@ -1,20 +1,24 @@
 class GroupsController < ApplicationController
 
     def new
-        binding.pry
         @group = Group.new
     end
 
     def create
         @group = Group.create(group_params)
         @user = current_user
-        #@recipe = current_user.recipes
         if @group.valid?
             @user.groups << @group #error is here
-            redirect_to user_groups_path(@user.id)
+            redirect_to user_path(@user.id)
         else
             render '/groups/new'
         end
+    end
+
+    def show
+        @group = Group.find_by(id: params[:id])
+        @recipes = @group.recipes
+        @user = current_user
     end
 
     private

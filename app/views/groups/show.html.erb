@@ -1,10 +1,9 @@
 
 <h1> <%= @group.name %> Recipe Share </h1>
 
-<% @group = params[:id] %>
-<%= link_to "Add a Recipe", new_user_group_recipe_path(@user, @group) %>
+<%= link_to "Add a Recipe", new_user_group_recipe_path(@user.id, @group.id) %>
 
-<% @recipes.each do |t| %> <br>
+<% @group.recipes.each do |t| %> <br>
    <h2> <%= t.title %> </h2>
    <h3> <%= t.description %> </h3>
    <p> <%= t.link %> </p>

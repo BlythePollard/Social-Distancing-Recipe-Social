@@ -2,21 +2,24 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
+        @group = Group.find_by(id: params[:group_id])
     end
 
     def create
         @recipe = Recipe.create(recipe_params)
-        if @recipe.save
-            redirect_to user_group_path(recipe_params[:user_id], recipe_params[:group_id])
+        @group = Group.find_by(id: params[:recipe][:group_id])
+        if @group.recipes << @recipe
+            redirect_to group_path(@group.id)
         else 
-            redirect_to new_user_group_path(recipe_params[:user_id], recipe_params[:group_id])
+            #render an error
+            redirect_to group_path(@group.id)
         end
     end
 
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :description, :link, :user_id, :group_id)
+        params.require(:recipe).permit(:title, :description, :link, :user_id)
     end
 
 end

@@ -8,3 +8,5 @@
     <%= link_to t.name, group_path(t.id) %><br>
 <% end %>    
 <br>
+
+<%= link_to "Log Out", session_path, :method => :delete %>

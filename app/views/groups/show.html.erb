@@ -1,5 +1,6 @@
 
 <h1> <%= @group.name %> Recipe Share </h1>
+<p> Group ID: <%= @group.id %> </p>
 
 <%= link_to "Add a Recipe", new_user_group_recipe_path(@user.id, @group.id) %>
 

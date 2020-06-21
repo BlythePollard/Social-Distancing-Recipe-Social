@@ -1,4 +1,3 @@
-
 <h1> <%= @group.name %> Recipe Share </h1>
 <p> Group ID: <%= @group.id %> </p>
 
@@ -9,6 +8,9 @@
    <h3> <%= t.description %> </h3>
    <p> <%= t.link %> </p>
    <p> Shared by: <%= t.user.name %> </p>
+    <% if t.user == @user %>
+    <  <p><%= link_to "Edit or delete recipe", edit_user_group_recipe_path(@user.id, @group.id, t.id)%></p>
+    <% end %>
 <% end %>    
 
 <%= link_to "take me home", user_path(@user)%>

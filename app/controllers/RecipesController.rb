@@ -16,6 +16,26 @@ class RecipesController < ApplicationController
         end
     end
 
+    def edit
+        @user = current_user
+        @group = Group.find_by(id: params[:group_id])
+        @recipe = Recipe.find_by(id: params[:id])
+    end
+
+    def update
+        @recipe = Recipe.find(params[:id])
+        @recipe.update(recipe_params)
+        @recipe.save
+        @group = Group.find_by(id: params[:recipe][:group_id])
+        redirect_to group_path(@group.id)
+    end
+
+    def destroy
+        Recipe.find(params[:id]).destroy
+        @group = Group.find_by(id: params[:group_id])
+        redirect_to group_path(@group.id)
+    end
+
     private
 
     def recipe_params

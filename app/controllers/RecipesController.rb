@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
     def create
         @recipe = Recipe.create(recipe_params)
         @group = Group.find_by(id: params[:recipe][:group_id])
+        @recipe.avatar.attach(params[:recipe][:avatar])
         if @group.recipes << @recipe
             redirect_to group_path(@group.id)
         else 
@@ -25,6 +26,7 @@ class RecipesController < ApplicationController
     def update
         @recipe = Recipe.find(params[:id])
         @recipe.update(recipe_params)
+        @recipe.avatar.attach(params[:recipe][:avatar])
         @recipe.save
         @group = Group.find_by(id: params[:recipe][:group_id])
         redirect_to group_path(@group.id)
@@ -39,7 +41,7 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :description, :link, :user_id)
+        params.require(:recipe).permit(:title, :description, :link, :user_id, :avatar)
     end
 
 end

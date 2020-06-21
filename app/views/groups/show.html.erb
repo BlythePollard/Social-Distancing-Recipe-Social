@@ -5,11 +5,12 @@
 
 <% @group.recipes.each do |t| %> <br>
    <h2> <%= t.title %> </h2>
+   <%= image_tag t.avatar.variant(resize: ('300x300')) if t.avatar.attached? %>
    <h3> <%= t.description %> </h3>
    <p> <%= t.link %> </p>
    <p> Shared by: <%= t.user.name %> </p>
     <% if t.user == @user %>
-    <  <p><%= link_to "Edit or delete recipe", edit_user_group_recipe_path(@user.id, @group.id, t.id)%></p>
+    <p><%= link_to "Edit or delete recipe", edit_user_group_recipe_path(@user.id, @group.id, t.id)%></p>
     <% end %>
 <% end %>    
 

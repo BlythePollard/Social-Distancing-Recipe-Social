@@ -8,6 +8,8 @@
     <%= f.label :link %>
     <%= f.text_field :link %><br><br>
 
+    <%= f.file_field :avatar %>
+
     <%= f.hidden_field :group_id, :value => params[:group_id] %>
 
     <%= f.hidden_field :user_id, :value => params[:user_id] %>

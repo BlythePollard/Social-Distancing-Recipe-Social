@@ -12,6 +12,7 @@
     <% if t.user == @user %>
     <p><%= link_to "Edit or delete recipe", edit_user_group_recipe_path(@user.id, @group.id, t.id)%></p>
     <% end %>
+   <p> <%= link_to "Save this recipe", user_recipe_saved_recipes_path(@user.id, t.id) %> </p> 
 <% end %>    
 
 <%= link_to "take me home", user_path(@user)%>

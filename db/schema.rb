@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_031050) do
+ActiveRecord::Schema.define(version: 2020_07_03_230525) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 2020_06_21_031050) do
     t.string "link"
     t.integer "user_id"
     t.integer "group_id"
+  end
+
+  create_table "saved_recipes", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "link"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,3 +1,8 @@
+<p> <% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<%= link_to "View my saved recipes", user_saved_recipes_path(@user.id)%>
+<% end %> </p>
+
 <h1> <%= @group.name %> Recipe Share </h1>
 <p> Group ID: <%= @group.id %> </p>
 
@@ -12,7 +17,7 @@
     <% if t.user == @user %>
     <p><%= link_to "Edit or delete recipe", edit_user_group_recipe_path(@user.id, @group.id, t.id)%></p>
     <% end %>
-   <p> <%= link_to "Save this recipe", user_recipe_saved_recipes_path(@user.id, t.id) %> </p> 
+   <p> <%= link_to "Save this recipe", new_user_saved_recipe_path(:user_id => @user.id, :id => t.id) %> </p> 
 <% end %>    
 
 <%= link_to "take me home", user_path(@user)%>

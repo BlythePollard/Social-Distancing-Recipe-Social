@@ -17,11 +17,11 @@ class UsersController < ApplicationController
         @user = current_user
     end
 
-    def save_recipe
-        binding.pry
-        @recipe = Recipe.find_by(id: params[:recipe_id])
-        current_user.saved_recipes << @recipe
-    end
+    # def save_recipe
+    #     binding.pry
+    #     @recipe = Recipe.find_by(id: params[:recipe_id])
+    #     current_user.saved_recipes << @recipe
+    # end
 
     private
 

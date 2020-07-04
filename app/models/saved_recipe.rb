@@ -1,3 +1,3 @@
-class Saved_recipe < ApplicationRecord
+class SavedRecipe < ApplicationRecord
     belongs_to :user
 end

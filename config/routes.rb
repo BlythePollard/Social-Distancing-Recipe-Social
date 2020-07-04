@@ -5,13 +5,14 @@ Rails.application.routes.draw do
     get '/groups/addgroup' => 'groups#addgroup'
     post '/groups/addgroup' => 'groups#searchgroup'
 
-    resources :users do 
-      resources :recipes do
-        get '/saved_recipes' => 'users#save_recipe'
-      end
-    end
+    # resources :users do 
+    #   resources :recipes do
+    #     get '/saved_recipes' => 'users#save_recipe'
+    #   end
+    # end
 
     resources :users do 
+      resources :saved_recipes
       resources :groups do #/users/:id/groups/:id
         resources :recipes #/users/:id/groups/:id/recipes
       end

@@ -17,7 +17,7 @@
     <% if t.user == @user %>
     <p><%= link_to "Edit or delete recipe", edit_user_group_recipe_path(@user.id, @group.id, t.id)%></p>
     <% end %>
-   <p> <%= link_to "Save this recipe", new_user_saved_recipe_path(:user_id => @user.id, :id => t.id) %> </p> 
+   <p> <%= link_to "Save this recipe", new_user_saved_recipe_path(:user_id => @user.id, :id => t.id, :group_id => @group.id) %> </p> 
 <% end %>    
 
 <%= link_to "take me home", user_path(@user)%>

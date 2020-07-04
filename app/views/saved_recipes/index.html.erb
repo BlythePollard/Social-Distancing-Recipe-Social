@@ -1,3 +1,7 @@
-saved recipes index
+<h1> My saved recipes </h1>
+
+<% @saved_recipes.each do |t| %>
+    <p> <%= link_to t.title, user_saved_recipe_path(t.user_id, t.id) %> </p>
+<% end %>
 
 back home

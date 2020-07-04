@@ -1,6 +1,7 @@
 <h1> Welcome, <%= @user.name %>! </h1>
-<%= link_to "New Group", new_user_group_path(@user.id)%>
-<%= link_to "Join a group", groups_addgroup_path %>
+<p> <%= link_to "Create a group", new_user_group_path(@user.id)%> </p>
+<p> <%= link_to "Join a group", groups_addgroup_path %> </p>
+<p> <%= link_to "My saved recipes", user_saved_recipes_path(@user.id) %> </p>
 
 <br>
 <h3>Your Groups:</h3>
@@ -10,5 +11,3 @@
 <br>
 
 <%= link_to "Log Out", session_path, :method => :delete %>
-
-<p> link to my saved recipes </p>
